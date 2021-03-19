@@ -1,9 +1,8 @@
-import { database } from "../shared/data.mjs";
+import { database } from "../shared/data.mjs"
 
-database
 
-const path = globalThis.window ? 'browser' : 'console'
-const { default: ViewFactory } = await import (`./../platforms/${path}/index.mjs`);
+const platform = globalThis.window ? 'browser' : 'console'
+const { default: ViewFactory } = await import(`./../platforms/${platform}/index.mjs`);
 
 const app = new ViewFactory()
 app.render(database)
